@@ -54,7 +54,7 @@ namespace GitDirCompareExpander
             string[] rightFiles = Directory.GetFiles(rightFolder, "*", SearchOption.AllDirectories);
 
             List<(string, string)> desiredLeft = leftFiles.Select(file => (file, file.Replace(leftFolder, rightFolder))).ToList();
-            List<(string, string)> desiredRight = leftFiles.Select(file => (file.Replace(rightFolder, leftFolder), file)).ToList();
+            List<(string, string)> desiredRight = rightFiles.Select(file => (file.Replace(rightFolder, leftFolder), file)).ToList();
 
             List<(string, string)> filesToDiff = desiredLeft;
 
